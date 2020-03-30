@@ -1,0 +1,58 @@
+{
+  "kind": "youtube#channelListResponse",
+  "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/hA1M6JqFwQVbGmiYjTUun726qfA\"",
+  "pageInfo": {
+   "totalResults": 1,
+   "resultsPerPage": 1
+  },
+  "items": [
+   {
+    "kind": "youtube#channel",
+    "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/gQ2jDTlW3lxeLSQpnHHlXYJHnz8\"",
+    "id": "UCoziFm3M4sHDq1kkx0UwtRw",
+    "snippet": {
+     "title": "Glam&Gore",
+     "description": "My name is Mykie and I'm a self-taught LA based professional beauty and special effects makeup artist. Things are about to get pretty ugly.\n\nFor more looks and extra shenanigans, follow me on these other places!\nInstagram: @mykie\nTwitter: @GlamAndGore\nfacebook.com/glamandgorema\u00adkeup\nsnapchat: glamNgore\n\nwww.glamandgore.com\n\nAll images and videos are copyright Glam&Gore ©2014",
+     "customUrl": "glamandgoremakeup",
+     "publishedAt": "2014-03-16T07:02:08.000Z",
+     "thumbnails": {
+      "default": {
+       "url": "https://yt3.ggpht.com/a/AATXAJylwDDxCvGtjGqTN7MXOUOFb81UwzAceKXb2A=s88-c-k-c0xffffffff-no-rj-mo",
+       "width": 88,
+       "height": 88
+      },
+      "medium": {
+       "url": "https://yt3.ggpht.com/a/AATXAJylwDDxCvGtjGqTN7MXOUOFb81UwzAceKXb2A=s240-c-k-c0xffffffff-no-rj-mo",
+       "width": 240,
+       "height": 240
+      },
+      "high": {
+       "url": "https://yt3.ggpht.com/a/AATXAJylwDDxCvGtjGqTN7MXOUOFb81UwzAceKXb2A=s800-c-k-c0xffffffff-no-rj-mo",
+       "width": 800,
+       "height": 800
+      }
+     },
+     "localized": {
+      "title": "Glam&Gore",
+      "description": "My name is Mykie and I'm a self-taught LA based professional beauty and special effects makeup artist. Things are about to get pretty ugly.\n\nFor more looks and extra shenanigans, follow me on these other places!\nInstagram: @mykie\nTwitter: @GlamAndGore\nfacebook.com/glamandgorema\u00adkeup\nsnapchat: glamNgore\n\nwww.glamandgore.com\n\nAll images and videos are copyright Glam&Gore ©2014"
+     },
+     "country": "US"
+    },
+    "contentDetails": {
+     "relatedPlaylists": {
+      "uploads": "UUoziFm3M4sHDq1kkx0UwtRw",
+      "watchHistory": "HL",
+      "watchLater": "WL"
+     }
+    },
+    "statistics": {
+     "viewCount": "439996687",
+     "commentCount": "0",
+     "subscriberCount": "3800000",
+     "hiddenSubscriberCount": false,
+     "videoCount": "242"
+    }
+   }
+  ]
+ }
+ 
