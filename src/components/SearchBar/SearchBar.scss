@@ -1,0 +1,25 @@
+
+.search-bar{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 40px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  .yt-logo-container{
+    grid-row: 1 / 1;
+    grid-column: 1 / 3;
+    .logo{
+      padding-left: 70px;
+    }
+    .ui.input{
+      width: 500px;
+    }
+  }
+  .searchbox-container{
+    grid-row: 1 / 1;
+    grid-column: 2 / 3;
+    margin: auto;
+  }
+}
+.ui.search > .ui.input.icon { width: 500px; }
+

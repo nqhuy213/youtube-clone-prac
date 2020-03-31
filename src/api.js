@@ -1,32 +1,51 @@
 const API_KEY = 'AIzaSyCiAur9IE22chQYJMh9NKPITIlEt7JxTlQ'
-const SEARCH_URL = 'https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular'
-const CHANNEL_URL =   'https://www.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics'
 
+const API_URL = 'https://www.googleapis.com/youtube/v3/'
 
-export default {
-  search: {
-    searchAll: async (pageToken) => {
-      var apiUrl
+const api = {
+  videos: {
+    fetchMostPopular: async (pageToken) => {
+      const searchParams = 'videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular'
+      var FETCH_URL
       if (pageToken === undefined) {
-        apiUrl = SEARCH_URL + '&key=' + API_KEY
+        FETCH_URL = API_URL + searchParams + '&key=' + API_KEY
       }
       else{
-        apiUrl = SEARCH_URL + '&pageToken=' + pageToken + '&key=' + API_KEY
+        FETCH_URL = API_URL + searchParams + '&pageToken=' + pageToken + '&key=' + API_KEY
       }
-      const result = await fetch(apiUrl)
+      const result = await fetch(FETCH_URL)
       const data = await result.json()
       return data
     },
-    searchQuery: async (pageToken, query) => {
-
-    }
   },
   channel: {
     fetchById: async (channelId) => {
-      const apiUrl = CHANNEL_URL + `&id=${channelId}&key=${API_KEY}`
-      const result = await fetch(apiUrl)
+      const searchParams = 'channels?part=snippet%2CcontentDetails%2Cstatistics'
+      const FETCH_URL = API_URL + searchParams + `&id=${channelId}&key=${API_KEY}`
+      const result = await fetch(FETCH_URL)
       const data = await result.json()
       return data
     }
+  },
+
+  search: {
+    fetchByKeyword: async (pageToken, keyword) => {
+      const searchParams = 'search?part=snippet&maxResults=25'
+      var FETCH_URL
+      if (pageToken === undefined) {
+        FETCH_URL = API_URL + searchParams + `&q=${keyword}&key=${API_KEY}`
+      }
+      else{
+        FETCH_URL = API_URL + searchParams + `&q=${keyword}&pageToken=${pageToken}&key=${API_KEY}`
+      }
+      const result = await fetch(FETCH_URL)
+      const data = await result.json()
+      return {
+        keyword: keyword,
+        data: data
+      }
+    }
   }
 }
+
+export default api

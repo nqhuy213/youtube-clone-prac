@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {fetchFirstList, fetchMore} from '../../redux/actions/HomepageActions'
+import {fetchFirstList, fetchMore} from '../redux/actions/HomepageActions'
 import InfiniteScroll from 'react-infinite-scroll-component';
-import VideoPreview from '../Videos/VideoPreview/VideoPreview';
-import exVideo from '../../videoExample.json'
+import VideoPreview from '../components/Videos/VideoPreview/VideoPreview';
+import exVideo from '../videoExample.json'
+import api from '../api';
 
 class HomePage extends Component {
 
@@ -12,8 +13,9 @@ class HomePage extends Component {
   //   console.log(this.props)
   // }
 
-  componentDidMount(){
+  async componentDidMount(){
     // this.props.fetchFirstList()
+    
   }
 
   bottomCallback(){
@@ -46,7 +48,6 @@ class HomePage extends Component {
                        size='medium'
                        pathname='/watch'
                        search={`?v=${exVideo.id}`}
-                       
                        />
         </div>
       )

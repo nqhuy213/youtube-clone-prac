@@ -21,12 +21,12 @@ export default class VideoPreview extends Component {
   // async componentDidMount(){
   //    const channelInfo = await api.channel.fetchById(this.props.video.snippet.channelId)
   //    this.setState({
-  //      channel: channelInfo.items[0].snippet.thumbnails.default.url
+  //      channel: channelInfo
   //    })
   // }
 
   render() {
-    const channel = this.state.channel.items[0].snippet.thumbnails.default
+    const channelAvatar = this.state.channel.items[0].snippet.thumbnails.default
     const {video, size} = this.props
     const duration = video.contentDetails ? video.contentDetails.duration : null;
     const videoDuration = getVideoDurationString(duration)
@@ -46,7 +46,7 @@ export default class VideoPreview extends Component {
             </div>
             <div className='video-info'>
               <div className='channel-avatar'>
-                <Image src={channel.url} style={{
+                <Image src={channelAvatar.url} style={{
                   borderRadius: '50%',
                 }}/>
               </div>

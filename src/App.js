@@ -1,12 +1,15 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import HomePage from './components/Pages/HomePage';
+import HomePage from './pages/HomePage';
+import AppLayout from './components/AppLayout/AppLayout';
+import ResultPage from './pages/ResultPage';
 
 function App() {
   return (
-    <div className="App">
+    <AppLayout>
       <Route exact path='/' component={HomePage}/>
-    </div>
+      <Route path='/results' render={(props) => <ResultPage {...props}/>}/>
+    </AppLayout>
   );
 }
 

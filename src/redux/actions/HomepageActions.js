@@ -26,7 +26,7 @@ function fetchMoreBegin(){
   }
 }
 
-function fetchrHomePageMore(data){
+function fetchHomePageMore(data){
   return {
     type: types.FETCH_HOMEPAGE_MORE,
     payload: data
@@ -37,7 +37,7 @@ function fetchrHomePageMore(data){
 export function fetchFirstList(){
   return dispatch => {
     dispatch(fetchHomePageBegin())
-    return api.search.searchAll().then(
+    return api.videos.fetchMostPopular().then(
       data => {
         dispatch(fetchHomePageSuccess(data))
       }
@@ -48,9 +48,9 @@ export function fetchFirstList(){
 export function fetchMore(pageToken){
   return dispatch => {
     dispatch(fetchMoreBegin())
-    return api.search.searchAll(pageToken).then(
+    return api.videos.fetchMostPopular(pageToken).then(
       data => {
-        dispatch(fetchrHomePageMore(data))
+        dispatch(fetchHomePageMore(data))
       }
     )
   }
