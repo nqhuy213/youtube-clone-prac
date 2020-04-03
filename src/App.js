@@ -1,14 +1,18 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from './pages/HomePage/HomePage';
 import AppLayout from './components/AppLayout/AppLayout';
 import ResultPage from './pages/ResultPage';
+import WatchPage from './pages/WatchPage/WatchPage';
 
-function App() {
+function App(props) {
   return (
     <AppLayout>
-      <Route exact path='/' component={HomePage}/>
-      <Route path='/results' render={(props) => <ResultPage {...props}/>}/>
+      <Switch>
+        <Route exact path='/' component={HomePage}/>
+        <Route path='/results' render={(props) => <ResultPage {...props}/>}/>
+        <Route path='/watch' render={(props) => <WatchPage {...props}/>}/>        
+      </Switch>
     </AppLayout>
   );
 }

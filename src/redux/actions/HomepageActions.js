@@ -10,7 +10,10 @@ function fetchHomePageBegin() {
 function fetchHomePageSuccess(data) {
   return {
     type: types.FETCH_HOMEPAGE_SUCCESS,
-    payload: data
+    payload: {
+      nextPageToken: data.nextPageToken,
+      items: data.items
+    }
   }
 }
 function fetchHomePageFailure(error) {
@@ -29,7 +32,9 @@ function fetchMoreBegin(){
 function fetchHomePageMore(data){
   return {
     type: types.FETCH_HOMEPAGE_MORE,
-    payload: data
+    payload:  {
+      nextPageToken: data.nextPageToken,
+      items: data.items}
   }
 }
 

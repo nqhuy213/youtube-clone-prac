@@ -1,0 +1,67 @@
+@import '../../../../styles/shared';
+
+
+.video-item-container{
+  display: grid;
+  grid-template-columns: 246px 614px;
+  grid-template-rows: 138px;;
+  padding: 0px;
+  margin: 0px;
+  width: 860px;
+  &.related{
+    grid-template-columns: 120px 200px;
+    grid-template-rows: 90px;
+    
+  }
+  .item-thumbnail-container{
+    position: relative;
+    grid-row: 1 / 1;
+    grid-column: 1 / 2;
+    width: 100%; 
+    height: 100%;
+  }
+  .item-info-container{
+    position: relative;
+    grid-row: 1 / 1;
+    grid-column: 2 / 2;
+  }
+}
+
+
+.item-info-container{
+  display: grid;
+  grid-template-rows: 69px 69px;
+  padding-left: 15px;
+  line-height: normal;
+  .item-header{
+    grid-row: 1 / 2;
+    .item-title{
+      color: $text-color-dark;
+      font-weight: 500;
+      font-size: 1.7rem;
+      &.related{
+        font-size: 1rem;
+        padding-bottom: 1px;
+      }
+    }
+    .channel-view-date{
+      color: $text-color-gray;
+      font-size: 0.87rem;
+    }
+  }
+  .item-description{
+    grid-row: 2 / 2;
+    color: $text-color-gray;
+    font-size: 0.9rem;
+    padding-top: 10px;
+    &.related{
+      visibility: hidden;
+    }
+  }
+}
+
+.thumbnail{
+
+  width: 100%; 
+  height: 100%;
+}

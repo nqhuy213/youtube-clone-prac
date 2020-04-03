@@ -37,6 +37,7 @@ export function searchByKeyword(keyword) {
     dispatch(searchByKeywordBegin(keyword))
     return api.search.fetchByKeyword(undefined, keyword).then(
       data => {
+        
         dispatch(searchByKeywordSuccess(data))
       }
     )
@@ -44,7 +45,6 @@ export function searchByKeyword(keyword) {
 }
 export function searchByKeywordMore(pageToken, keyword) {
   return dispatch => {
-    dispatch(searchByKeywordMoreBegin())
     return api.search.fetchByKeyword(pageToken, keyword).then(
       data => {
         dispatch(searchByKeywordMoreSuccess(data))

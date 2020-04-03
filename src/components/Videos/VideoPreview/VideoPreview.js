@@ -6,52 +6,37 @@ import { getShortNumberString } from '../../../services/number-format';
 import './VideoPreview.scss'
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';
-import channel from '../../../channelExample.json'
 
-import api from '../../../api'
 
 TimeAgo.locale(en);
 const timeAgo = new TimeAgo('en-US');
 
 export default class VideoPreview extends Component {
-  state = {
-    channel: channel
-  }
-
-  // async componentDidMount(){
-  //    const channelInfo = await api.channel.fetchById(this.props.video.snippet.channelId)
-  //    this.setState({
-  //      channel: channelInfo
-  //    })
-  // }
-
   render() {
-    const channelAvatar = this.state.channel.items[0].snippet.thumbnails.default
-    const {video, size} = this.props
+    const {video} = this.props
     const duration = video.contentDetails ? video.contentDetails.duration : null;
     const videoDuration = getVideoDurationString(duration)
-    const horizontal = this.props.horizontal ? 'horizontal' : null
-    const expanded = this.props.expanded ? 'expanded' : null
+
     const videoTitle = video.snippet.title
     const channelTitle = video.snippet.channelTitle
     const viewAndTimeString = VideoPreview.getFormattedViewAndTime(video);
     return (
         <Link to={{pathname: this.props.pathname, search: this.props.search}} style={{width: '320px'}}>
-          <div className={['video-preview', horizontal, expanded].join(' ')}>
+          <div className='video-preview'>
             <div className="thumbnail-container">
-              <Image src={video.snippet.thumbnails[size].url} />
+              <Image className='preview-image' src={video.snippet.thumbnails.medium.url} />
               <div className='duration-label'>
                 <span>{videoDuration}</span>
               </div>
             </div>
             <div className='video-info'>
               <div className='channel-avatar'>
-                <Image src={channelAvatar.url} style={{
+                <Image src='' style={{
                   borderRadius: '50%',
                 }}/>
               </div>
-              <div className='video-title-header'><span>{videoTitle}</span></div>
               <div className='video-extra-info'>
+                <div className='video-title-header'><span>{videoTitle}</span></div>
                 <div className='video-channel-title'><span>{channelTitle}</span></div>
                 <div className='view-and-time'>{viewAndTimeString}</div>
               </div>

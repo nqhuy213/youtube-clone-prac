@@ -1,25 +1,31 @@
 import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
 import './SearchBar.scss'
-import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom';
+import {getSearchParam} from '../../services/search-params'
 
-import { searchByKeyword, searchByKeywordMore } from '../../redux/actions/SearchActions';
 
 class SearchBar extends Component {
 
   state = {
-    keyword: ''
+    keyword: this.getSearchQuery()
   }
   
+  getSearchQuery() {
+    return getSearchParam(this.props.location, 'search_query');
+  }
+
   handleInputChange(event) {
     this.setState({
       keyword: event.target.value
     })
   }
 
-  async handleOnSubmit(event){
-    this.props.searchByKeyword(this.state.keyword)
+  handleOnSubmit(event){
     //Redirect to Result page
+    if(this.state.keyword){
+      this.props.history.push(`/results?search_query=${this.state.keyword}`)
+    }
   }
 
   render() {
@@ -27,21 +33,17 @@ class SearchBar extends Component {
     return (
       <div className='search-bar'>
         <div className='yt-logo-container'>
-          <div className='logo'>Logo</div>
+          <a href='/'>
+            <div className='logo'>Logo</div>
+          </a>
         </div>
         <div className='searchbox-container'>
-          {/* <Search
-            open={false}
-            onSearchChange={this.handleInputChange.bind(this)}
-            value={keyword}
-            type='submit'
-          /> */}
           <Form onSubmit={this.handleOnSubmit.bind(this)}>
             <Form.Input 
               placeholder='Search' 
               style={{width: 500}} 
               onChange={this.handleInputChange.bind(this)}
-              value={keyword}
+              value={keyword || ''}
             />
           </Form>
         </div>
@@ -50,17 +52,6 @@ class SearchBar extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    keyword: state.SearchResult.keyword
-  }
-}
 
-function mapDispatchToProps(dispatch) {
-  return {
-    searchByKeyword: (keyword) => dispatch(searchByKeyword(keyword)),
-    searchByKeywordMore: (pageToken, keyword) => dispatch(searchByKeywordMore(pageToken, keyword))
-  }
-}
 
-export default connect(null ,mapDispatchToProps)(SearchBar)
+export default withRouter(SearchBar)

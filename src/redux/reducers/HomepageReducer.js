@@ -3,7 +3,8 @@ import * as types from '../types'
 const initialState = {
   loading: false,
   data: {
-    nextPageToken: ''
+    nextPageToken: '',
+    toShow:[]
   } 
   }
 
@@ -12,10 +13,9 @@ export default function Homepage(state = initialState,
   switch(action.type) {
     case types.FETCH_HOMEPAGE_BEGIN:
       return {
+        ...state,
         loading: true,
-        data:{
-          nextPageToken: ''
-        }
+        
       }
     case types.FETCH_HOMEPAGE_SUCCESS:
       return {
